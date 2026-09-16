@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>순서 있는 목차</h1>
+    <ol type="a" start="3">
+        <!-- 
+        스타일은 CSS에서 거의 담당하지만
+        필요하다면 html에서 직접 지정할 수도 있음.
+        -->
+        <li>
+            기아자동차
+            <ul>
+                <li>K3</li>
+                <li>K5</li>
+                <li>K7</li>
+                <li>K9</li>
+            </ul>
+        </li>
+        <li>현대자동차</li>
+        <li>삼성자동차</li>
+    </ol>
+    <hr>
+    <h1>순서 없는 목차</h1>
+    <!--
+    type = "disc" : 기본값, 검정 원형
+    type = "circle" : 원형,
+    type = "square" : 사각형
+    -->
+    <ul type = "circle">
+        <li>기아자동차</li>
+        <li>현대자동차</li>
+        <li>삼성자동차</li>
+    </ul>
+
+    <h2>상품구성</h2>
+<dl>
+<dt>선물용3kg</dt>
+<dd>소과13~16과</dd>
+<dd>중과10~12과</dd>
+</dl>
+<dl>
+<dt>선물용5kg</dt>
+<dd>중과15~19과</dd>
+</dl>
+</body>
+</html>
