@@ -20,8 +20,42 @@
     <br>
     <label for="pw_tag">input password : </label>
     <input type="password" id="pw_tag" name="pwd" size="10" maxlength="10" value = "pwd">
-    <br>
+    <br><br>
+    <fieldset>
+        <legend>취미</legend>
+        <input type="checkbox" id="workout" name="hobby" value="workout">
+        <label for="workout">운동</label>
+        <input type="checkbox" id="reading" name="hobby" value="reading">
+        <label for="reading">독서</label>
+        <input type="checkbox" id="travel" name="hobby" value="travel">
+        <label for="travel">여행</label>
+    </fieldset>
+
+    <!--
+    radio 버튼은 같은 name을 가진 그룹 중 하나만 선택 가능.
+    1개의 그룹에 2개 이상의 radio 버튼이 있어야 함.
+    1개의 그룹에 1개만 있으면, 체크박스와 동일하게 동작함.
+    -->
+    <fieldset>
+        <legend>성별</legend>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">남자</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">여자</label>
+    </fieldset>
+
     <input type="submit" value="Login">
+    <input type="reset" value="Reset">
+    <input type="button" value="Click">
+
+    <br><br>
+    <!--
+    <button> 요소는 기본적으로 submit 동작을 함
+    input보다는 button 요소를 사용하는 것이 좋음.    
+    -->
+    <button type="submit">Login</button>
+    <button type="reset">Reset</button>
+    <button type="button">Click</button>
     </form>
 </body>
 </html>
