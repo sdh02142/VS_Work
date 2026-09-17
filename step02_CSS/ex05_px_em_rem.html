@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        body, html{
+            height: 100%;
+        } 최상위인 html의 영역을 처음에 할당하지 않으면 하위 요소들의 % 높이가 제대로 계산되지 않을 수 있음 
+        div.outer {
+            background-color: skyblue;
+            width: 50%;
+            height: 50%;
+        } 
+        */
+        div.outer{
+            background-color: skyblue;
+            width: 50vw; /* view width */
+            height: 50vh; /* view height */
+            font-size: 32px;
+        }
+        .a {
+            background-color: red;
+            font-size: 1.5em; /* 부모 노드의 font-size를 기준으로 계산 = 48px */
+        }
+        .b {
+            background-color: green;
+            font-size: 1.5rem; /* 루트 노드의 font-size를 기준으로 계산 = 24px */
+        }
+        .c {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        단위 : em VS rem VS px
+        <div class="a">em : 부모 노드를 기준으로 계산</div>
+        <div class="b">rem : 루트 노드를 기준으로 계산</div>
+        <div class="c">px : 해상도를 기준으로 계산, 고정 픽셀 단위</div>
+    </div>
+</body>
+</html>

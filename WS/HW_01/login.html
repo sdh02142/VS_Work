@@ -9,12 +9,18 @@
     <h1>Login</h1>
     <form action="./index.html" method="post">
     <label for="id_tag">아이디&nbsp;</label>
-    <input type="text" id="id_tag" name="id" size="5" maxlength="5" value = "id">
+    <input type="text" id="id_tag" name="id" value = "id">
     <br>
     <label for="pw_tag">비밀번호&nbsp;</label>
-    <input type="password" id="pw_tag" name="pwd" size="10" maxlength="10" value = "pwd">
+    <input type="password" id="pw_tag" name="pwd" value = "pwd">
     <hr>
-    <button type="submit">로그인</button>
+    <!--
+    <button> 요소는 form의 내부에서는 기본적으로 submit 동작을 함.
+    form의 action 속성에 지정된 URL로 form 데이터를 method에 지정된 HTTP 메서드를 사용하여 전송함.
+    
+    form의 외부에서는 기본적으로 button 동작을 함.
+    -->
+    <button>로그인</button>
     </form>
 </body>
 </html>

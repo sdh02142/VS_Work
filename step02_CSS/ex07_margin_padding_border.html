@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 상하좌우 / 상하 좌우 / 상 좌우 하 / 상 우 하 좌 */
+        div{width: 200px; height: 200px;}
+        /*
+        브라우저에서 padding이 추가된 영역을 확인해보면
+        실제 width와 height는 처음 지정한 (width or height) + padding + border의 값으로 표현됨.
+        */
+
+        div.a{
+            background-color: red;
+            padding: 20px 0px 0px 20px;
+            box-sizing: border-box;
+        }
+        /*
+        border-box -> 처음 설정한 width와 height를 벗어나지 않고
+                      내부에서 padding과 border 크기를 적용.
+        */
+        div.b{
+            background-color: green;
+            padding: 20px;
+            box-sizing: border-box;
+            border-style: dashed dotted;
+            border-width: 5px;
+            border-color: aquamarine blueviolet beige;/* 상 좌우 하 */
+            margin: 20px 0px 30px 50px;
+            border-radius: 100px 50px 30px 70px;/* 좌상 우상 우하 좌하 -> 11 1 5 7 */
+            opacity: 0.5; /* 투명도, 1 = 불투명, 0 = 투명 */
+        }
+        div.c{
+            background-color: blue;
+            box-sizing: border-box;
+            border-style: solid dotted;
+            border: double 10px yellow;
+            border-radius: 100px;
+            color: white;
+            text-align: center;
+            vertical-align: middle; /* div에서는 적용되지 않음. -> display 속성이 block으로 되어있기 때문. */
+        }
+    </style>
+</head>
+<body>
+    <div class="a">box모델</div>
+    <div class="b">box모델</div>
+    <div class="c">box모델</div>
+</body>
+</html>
