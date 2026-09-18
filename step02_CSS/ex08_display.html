@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+        }
+
+        span{ /* display에서 in-line 요소이기 때문에 수치가 적용되지 않음. -> block 요소로 변경 시, 적용 가능.*/
+            width: 100px;
+            height: 100px;
+        }
+
+        .a{background-color: red;}
+        .b{background-color: green; margin: 50px 0 30px 30px;}
+        .c{background-color: blue; margin: 50px;}
+        /* div에서의 margin은 서로 간의 margin 영역이 겹쳐짐. */
+        
+        #a{background-color: red;}
+        #b{
+            background-color: green;
+            margin: 10px 30px 20px 20px;
+            /* display: block; */
+            display: inline-block;
+        }
+        #c{background-color: blue;}
+        /*  */
+    </style>
+</head>
+<body>
+    <!-- block요소 - div -->
+    <!-- div.a{div$}*3 -->
+    <div class="a">div1</div>
+    <div class="b">div2</div>
+    <div class="c">div3</div>
+
+    <hr>
+
+    <!-- in-line요소 - span -->
+    <!-- span#a-${span$}*3 -->
+    <span id="a">span1</span><span id="b">span2</span><span id="c">span3</span>
+</body>
+</html>

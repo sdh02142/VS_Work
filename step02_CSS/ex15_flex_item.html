@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            width: 100vw; height: 100vh;
+            background-color: aqua;
+            display: flex;
+        }
+
+        .item{
+            /* width: 100px; */
+            height: 100px;
+            border: 1px solid red;
+            box-sizing: border-box;
+        }
+        /* 
+        item size를 결정하는 요소들
+        flex-grow : 가로 공간 중 남는 공간을 전부 차지하게 변경.
+        flex-shrink : 공간이 축소될 때, 줄어드는 비율. 숫자가 높을 수록 급격하게 줄어들음.
+        flex-basis: 아이템의 기본 크기 - 부여한 크기를 기본 크기로 설정.
+        */
+        .item1{
+            /*
+            flex-grow: 1;
+            flex-shrink: 1;
+            */
+            flex-basis: 200px;
+        }
+
+        .item2{
+            /*
+            flex-grow: 1;
+            flex-shrink: 3;
+            */
+        }
+        
+        .item3{
+            /*
+            flex-grow: 1;
+            flex-shrink: 2;
+            */
+        }
+        .menu {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 30px;
+        }       
+    </style>
+</head>
+<body>
+    <!-- div.main>div.item.item${$}*3 -->
+    <div class="main">
+        <div class="item item1">1</div>
+        <div class="item item2">2</div>
+        <div class="item item3">3</div>
+    </div>
+    <hr>
+    <nav class="menu">
+    <a href="#">HOME</a>
+    <a href="#">HTML</a>
+    <a href="#">CSS</a>
+    <a href="#">JavaScript</a>
+</nav>
+</body>
+</html>
