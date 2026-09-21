@@ -1,0 +1,10 @@
+banner{
+    background-color: blueviolet;
+    font-size: xx-large;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    margin: 1px;
+}

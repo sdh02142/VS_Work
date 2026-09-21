@@ -1,0 +1,17 @@
+footer{
+    margin: 1px;
+    padding: 20px;
+
+    background-color: paleturquoise;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+}
+
+footer ul{
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+    text-align: right;
+}

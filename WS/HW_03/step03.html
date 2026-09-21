@@ -38,13 +38,19 @@
    - 세로 높이: 600px
    - 배경색: 토마토색
 */
-
+#content{
+   width: 1100px;
+   height: 600px;
+   background-color: tomato;
+}
 
 /* 
    #content 영역 안에 있는 h3 태그 스타일
    - 글자를 가운데 정렬
 */
-
+#content h3{
+   text-align:center;
+}
 /* 
    상품 영역
    - 가로 너비: 900px
@@ -53,7 +59,13 @@
    - 바깥 여백: 위 50px, 오른쪽 0, 아래 0, 왼쪽 100px
    - 왼쪽으로 배치 (float:left)
 */
-
+#product{
+   width: 900px;
+   height: 200px;
+   background-color: gold;
+   margin: 50px 0 0 100px;
+   float: left;
+}
 
 
 /* 
@@ -64,13 +76,23 @@
    - 바깥 여백: 위 20px, 오른쪽 15px, 아래 20px, 왼쪽 15px
    - 왼쪽으로 배치 (float:left)
 */
-
+.new{
+   width: 100px;
+   height: 100px;
+   background-color: blue;
+   margin: 20px 15px 20px 15px;
+   float: left;
+}
 
 /* 
    #product 영역 안의 두 번째 자식 div에 적용
    - 바깥 여백: 위 20px, 오른쪽 15px, 아래 0, 왼쪽 75px
    - 왼쪽으로 배치 (float:left)
 */
+#product > div:nth-child(2){
+   margin: 20px 15px 0 75px;
+   float: left;
+}
 
 
 </style>
