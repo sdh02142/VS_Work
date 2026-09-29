@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>New Web Project</title>
+	<style type="text/css">
+		tr th{background-color:pink}
+		td,th{padding:3px}
+
+		div{border: 1px red solid; width: 200px; height: 150px;}
+	</style>
+	
+	<!--
+	Script 영역을 상단에 넣을 경우, onload 이벤트 설정 필요
+	-->
+	
+	</head>
+	<body>
+		<h1>[ Dom 접근 ]</h1>
+		<form name="member" action="http://www.naver.com">
+		<table>
+			<tr>
+				<th>ID</th>
+				<td>
+					<input type="text" name="id" id="id"/>
+					
+				</td>
+			</tr>
+			
+			<tr>
+				<th>결과</th>
+				<td><input type="text" size="30" name="output" id="output"/></td>
+			</tr>	
+			<tr>		
+				<th colspan="2">
+					<input type="submit" value="전송1" />
+					<input type="button" value="전송2" />
+				</th>
+			</tr>				
+		</table>
+	</form>
+	<hr>
+	<div id="result"></div>
+	<script>
+		// 전송1(submit)을 click하면 유효성 체크.
+		document.querySelector("[name=member]").addEventListener("submit", () => {
+			// 전송 기능 차단
+			event.preventDefault();
+
+			const idEle = document.querySelector("[name=id]"); // input 요소
+
+			// input 요소의 값(= value)
+			console.log(idEle.value);
+
+			/*
+				값을 요소(Element)에 넣을 때
+				1) form 요소 - value
+
+				2) form 요소를 제외한 나머지 elements (ex : p, a, div, span, h1 ~ h6)
+					- innerHTML : 마크업(Mark-Up)을 사용할 때 -> `<h2>${idEle.value}</h2>`
+					- innerText : 마크업(Mark-Up) 없이 문자열(text)인 경우
+			*/
+
+			// 조회한 value를 input name="output"에 담기
+			document.querySelector("[name=output]").value = idEle.value;
+
+			// div id="result" 영역에 id value 넣기
+			document.querySelector("#result").innerHTML = `<h5>${idEle.value}</h5>`;
+			// document.querySelector("#result").innerText = `<h5>${idEle.value}</h5>`;
+
+			// input 값 지우기
+			idEle.value = "";
+
+			// id 박스에 커서 놓기
+			idEle.focus();
+		});
+
+		document.querySelector("[type=button]").addEventListener("click", () => {
+			// 유효성 체크 이후, 모든 게 OK라면 전송.
+			const idEle = document.querySelector("#id");
+			const outEle = document.getElementById("output");
+
+			if(idEle.value==="") {
+				alert("input id");
+				idEle.focus();
+				return;
+			}
+
+			if(outEle.value==="") {
+				alert("input result");
+				outEle.focus();
+				return;
+			}
+
+			// form 전송
+			document.querySelector("form").submit();
+		});
+	</script>
+	</body>
+</html>
+

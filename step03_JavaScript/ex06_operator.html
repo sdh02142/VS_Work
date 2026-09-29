@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const name = prompt("input name" /* prompt 전문 */, "1" /* 기본값 */);
+        // document.write("<h2>name = " + name + "</h2>")
+
+        // let kor = prompt("input kor score", 0);
+        // let sum = kor + 10; // 입력받은 값이 숫자여도 String으로 들어옴.
+        // document.write("<h2>sum = kor + 10 = " + sum + "</h2>")
+
+        // let eng = prompt("input eng score", 0);
+        // let sum2 = parseInt(eng) + 10; // parseInt 함수를 통해 숫자형으로 형변환.
+        // document.write("<h2>sum2 = eng + 10 = " + sum2 + "</h2>")
+    </script>
+    <h3>연산자</h3>
+    <script>
+        let i = 10;
+        let j = '10';
+        document.write("<h3>");
+            document.write("i = " + i + ", "+ (typeof(i)) + "<br>");
+
+            // 템플릿 문자열 - 변수와 문자열 쉽게 연결해서 출력( 백틱 ` )
+            document.write(`j = ${j}, ${typeof(j)}<br><br>`);
+
+            // 비교연산자
+            document.write(`${i} == ${j} => ${i==j}<br>`); // 값은 같음.
+            document.write(`${i} === ${j} => ${i===j}<br><br>`); // type은 다름.(Number / String)
+
+            document.write(`${i} != ${j} => ${i!=j}<br>`);
+            document.write(`${i} !== ${j} => ${i!==j}<br><br>`);
+
+            document.write(`${i} * ${j} => ${i*j}<br>`); // 서로 자료형이 다르더라도 연산이 가능한 값들의 관계면 연산하여 나타내줌.
+            document.write(`${i} + ${j} => ${i+j}<br>`); // JavaScript에서는 덧셈의 경우, String 값의 나열도 가능하므로 String + Number = String으로 값이 나옴.
+            document.write(`${i} + parseInt(${j}) => ${i+parseInt(j)}<br><br>`);
+
+            /*
+            형변환 함수
+
+            1) parseInt() : 값 안에 문자가 나오기 전까지 숫자를 추출함.
+            2) Number() : 값 안에 문자가 포함되어 았으면 NaN 결과 표출.
+            3) isNaN() : is Not a Number? (숫자가 아니면 true, 맞다면 false)
+            4) parseFloat() : 값 안에 문자가 나오기 전까지 실수를 추출함.
+            */
+            let data1 = '100';
+            let data2 = '100a';
+            let data3 = 'a100';
+
+            document.write(`data1 + : ${data1 + 10}<br>`);
+            document.write(`data1 * : ${data1 * 10}<br><br>`);
+            
+            document.write(`parseInt(data1) : ${parseInt(data1)}<br>`);
+            document.write(`Number(data1) : ${Number(data1)}<br><br>`);
+
+            document.write(`data2 + : ${data2 + 10}<br>`);
+            document.write(`data2 * : ${data2 * 10}<br><br>`);
+            
+            document.write(`parseInt(data2) : ${parseInt(data2)}<br>`);
+            document.write(`Number(data2) : ${Number(data2)}<br><br>`);
+
+            document.write(`data3 + : ${data3 + 10}<br>`);
+            document.write(`data3 * : ${data3 * 10}<br><br>`);
+            
+            document.write(`parseInt(data3) : ${parseInt(data3)}<br>`);
+            document.write(`Number(data3) : ${Number(data3)}<br><br>`);
+
+            // isNaN() 사용
+            if(isNaN(data1)) document.write(`data1 is NaN.<br>`);
+            else document.write(`data1 is Number.<br>`);
+
+            if(isNaN(data2)) document.write(`data2 is NaN.<br>`);
+            else document.write(`data2 is Number.<br>`);
+
+            if(isNaN(data3)) document.write(`data3 is NaN.<br>`);
+            else document.write(`data3 is Number.<br>`);
+
+            document.write(`<br>`);
+
+            // window 객체 안에 있는 주요 함수(창 역할)
+            // 1. 메세지 출력
+            // alert();
+            // 2. 의사를 물어볼 때
+            document.write(`${confirm("Delete?")}<br>`); // return true or false
+            // 3. 사용자 입력값 받을 때
+            let name = prompt("Name?", "John");
+            document.write(`${name}<br>`);
+        document.write("</h3>");
+    </script>
+</body>
+</html>

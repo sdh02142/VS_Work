@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: fit-content;
+            margin: 0 auto;
+        }
+        h1{
+            text-align: center;
+        }
+        table{
+            border: 7px red double;
+            text-align: center;
+            border-collapse: collapse;
+        }
+        tr, td{
+            border: 1px black solid;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const name = prompt();
+            const kor = prompt();
+            const eng = prompt();
+            const math = prompt();
+            const total = parseInt(kor) + parseInt(eng) + parseInt(math);
+            const avg = Math.round(total/3*100)/100;
+            const grade = avg>=90 ? '수' : avg>=80 ? '우':avg>=70 ? '미':avg>=60 ? '양':'가'
+            document.write('<div>');
+        document.write('<h1>성적표-1</h1>');
+        document.write('<table>');
+            //document.write('<caption><h1>성적표-1</h1></caption>');
+            document.write('<tr><td>이름</td><td>국어</td><td>영어</td><td>수학</td><td>총점</td><td>평균</td><td>등급</td></tr>');
+            document.write('<tr><td>' + name + '</td><td>' + kor + '</td><td>' + eng + '</td><td>' + math + '</td><td>' + total + '</td><td>' + avg + '</td><td>' + grade + '</td></tr>');
+        document.write('</caption>');
+        document.write('</div>');
+    </script>
+</body>
+</html>

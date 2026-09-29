@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Callback Function</h3>
+    <script>
+        // 두 수의 값을 전달받아 더하는 함수
+        const add = function(a,b){
+            return a+b;
+        }
+        // 두 수의 값을 전달받아 빼는 함수
+        const minus = (a,b) => a-b;
+
+        // 연산 결과를 출력하는 함수
+        const print = (a, b, operator) => {
+            let result = operator == '+' ? add(a,b) : operator == '-' ? minus(a,b) : "Wrong";
+            document.write(`${a} ${operator} ${b} = ${result}<br>`);
+        }
+
+        print(5,6,'');
+
+        // callback function
+        const print2 = (a, b, f) => document.write(`${a}, ${b} = ${f(a, b)}<br>`);
+
+        print2(10, 15, add);
+        print2(654, 264, minus);
+        print2(558, 0.4, (a,b)=>a*b); // <= callback 함수
+
+    </script>
+</body>
+</html>

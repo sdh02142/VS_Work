@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./JavaScript/script.js">
+        // 외부 js 파일을 연동시킨 현재 문서 내의 script 영역에 입력되는
+        // 모든 JavaScript는 무시됨.
+    </script>
+
+    <script src="./JavaScript/second.js" defer>
+        /*
+        외부 js 파일을 연동시킨 현재 문서 내의 script 영역에 입력되는
+        모든 JavaScript는 무시됨.
+        
+        외부 js 파일 또한 순차적으로 실행되므로
+        document에 직관된 함수 및 변수들은 document 생성 이후로
+        외부 js 호출 순서를 바꿔주면 실행 가능하게됨.
+
+        defer를 붙여주면 html 내의 작업이 순차적으로
+        진행되다가 해당 script를 다운로드만 진행하고,
+        다운로드가 완료되면 그 다음 작업 순서
+        (해당 script 이후의 CSS나 다른 script 및 body영역 등의 DOM 생성)로 넘어감.
+        
+        DOM 생성 완료 직후에 다운로드 된 해당 script 실행이 이루어지는 순서로 작동됨.
+
+        여러 defer의 script는 작성된 순서대로 다운로드 및 실행됨.
+        */
+    </script>
+
+    <script async>
+        alert("Pop Up");
+    </script>
+</head>
+<body>
+    <!--
+    JavaScript 적용 방법
+    3) 문서 외에 있는 script 파일을 
+    -->
+    <h2 onclick="onClickMethod(this)">JavaScript</h2>
+    <h2 onclick="onClickMethod(this)" id="h2">Happy Monday</h2>
+    <h3 id="a">Hello, World!</h3>
+
+</body>
+</html>

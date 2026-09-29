@@ -1,0 +1,60 @@
+<!DOCTYPE HTML >
+<html>
+ <head>
+  <title> New Document </title>
+  <meta charset="utf-8">
+  
+   <style>
+	 img{position:absolute;}
+   </style>
+ </head>
+
+ <body>
+  <form>
+     <input type="button" value="레이어움직이기"  id="move"/>
+	 <input type="button" value="레이어멈추기" id="stop"/>
+  </form>
+   <p>
+  <img src="img/dog.gif" id="img"/>
+  <script>
+    let startPosition = 0;
+    let bool1 = true;
+    let bool2 = true;
+    let actFunc = ()=>{};
+
+    const moveImg = () => {
+      if(bool1) {
+        if(startPosition > 500){
+          bool1 = false;
+        }
+        document.querySelector('img').style.left = `${startPosition++}px`;
+      } else {
+        if(startPosition < 0){
+          bool1 = true;
+        }
+        document.querySelector('img').style.left = `${startPosition--}px`;
+      }
+    };
+
+    document.querySelector("#move").addEventListener("click",() => {
+      if (bool2) {
+        actFunc = setInterval(moveImg, 10);
+        bool2 = false;
+      } else alert("Function activating already");
+      
+    });
+
+    document.querySelector("#stop").addEventListener("click",() => {
+      if(!bool2){
+        clearInterval(actFunc);
+        bool2 = true;
+      } else alert("Not found active function");
+      
+    });
+  let imgPosition = document.querySelector('img');
+  console.log(imgPosition);
+</script>
+ </body>
+</html>
+
+

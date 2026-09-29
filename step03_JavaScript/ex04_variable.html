@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>var(ES5 이전), let, const</h3>
+    <script>
+        /*
+        변수 선언
+
+        var 변수 이름;
+        var 변수 이름 = 값;
+        변수 이름 = 값; <- 전역 변수의 경우, var 생략 가능.
+        */
+
+       var a;
+       var b = 20;
+       c = 3.14
+
+       // 브라우저 출력
+       document.write("<h4>");
+       document.write("a = " + a + ", "+ (typeof(a)) + "<br>");
+       document.write("b = " + b + ", "+ (typeof(b)) + "<br>");
+       document.write("c = " + c + ", "+ (typeof(c)) + "<br><br>");
+
+       // 값 변경
+       a = "Hello, World!";
+       b = new Array(1, 'hi', 20, 3.14, true); // -> object
+       c = false;
+
+       // 브라우저 재출력
+       document.write("a = " + a + ", "+ (typeof(a)) + "<br>");
+       document.write("b = " + b + ", "+ (typeof(b)) + "<br>");
+       document.write("c = " + c + ", "+ (typeof(c)) + "<br><br>");
+
+       // JavaScript의 hoisting 개념
+       /*
+       JavaScript 언어에는 호이스팅이라는 개념이 존재함.
+       순차적으로 코드가 실행되는 구조이지만 처음 JavaScript가 실행되면
+       내부적으로 먼저 변수 및 함수들을 전부 메모리에 등록시킨 뒤, 순차적으로 코드가
+       실행되는 구조로, 변수 및 함수가 선언만 되어있다면 순서와는 상관없이 해당 변수가
+       초기화되지 않더라도 오류가 일어나지 않고 메모리에 올라간 변수를 불러와서
+       코드가 실행되어 구조적으로 문제가 없음.
+
+       호이스팅의 범위는 해당 실행되고 있는 script 영역 단위.
+       같은 html 내에서도 각 script 영역 범위 내에서만 호이스팅이 유지됨.
+       */
+       document.write("d = " + d + ", "+ (typeof(d)) + "<br><br>");
+       var d = 10;
+       document.write("</h4>");
+       //test();
+
+       function test(){
+        alert('1');
+       }
+
+       function test(){
+        alert('2');
+       } // -> 실제 실행되는 함수 -> 순차적으로 코드가 실행되는 구조에 따라
+         // 호이스팅 또한 순차적으로 등록되어 마지막에 저장된 변수 및 함수가 최종값.
+    </script>
+    <hr>
+    <h3>변수의 scope</h3>
+    <script>
+        var i = 0;
+        function test2(){
+            var i = 5;
+            var j = 20;
+            k = 50 // var 생략 시 무조건 전역변수
+
+            document.write("<h3>i = " + i + "</h3>");
+            document.write("<h3>this.i = " + this.i + "</h3>");
+            document.write("<h3>j = " + j + "</h3>");
+            document.write("<h3>k = " + k + "</h3>");
+        }
+
+        /*
+        위 함수에서의 this는 해당 함수를 호출하는 대상을 기준으로 this가 됨.
+        document의 body에서 해당 함수를 호출하므로 대상은 window가 되어
+        전역변수 영역으로 접근이 가능해짐 -> 전역변수로 선언한 i = 0 이 호출됨.
+        */
+
+        test2();
+
+        function test3(){
+            document.write("<h3>i = " + i + "</h3>"); // 전역변수 i = 0을 가리킴
+            document.write("<h3>this.i = " + this.i + "</h3>");
+            //document.write("<h3>j = " + j + "</h3>");
+            document.write("<h3>k = " + k + "</h3>");
+        }
+
+        test3();
+    </script>
+</body>
+</html>

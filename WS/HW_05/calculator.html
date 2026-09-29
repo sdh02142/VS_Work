@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px red solid;
+            width: 200px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <button>계산</button>
+    <div></div>
+    <script>
+        document.querySelector("button").addEventListener("click", () => {
+            console.log(1);
+            let bool = true;
+            let bool2 = false;
+            let fNum = NaN;
+            let sNum = NaN;
+            let oper = "";
+            let re = NaN;
+
+            while(bool){
+                console.log(2);
+                fNum = prompt("input first number");
+			    sNum = prompt("input second number");
+                oper = prompt("input operator");
+
+			if(isNaN(Number(fNum)) || isNaN(Number(fNum))) {
+				if(!confirm("try again?")) {
+                    bool = false;
+                    break;
+                } else continue; 
+			}
+
+            if(oper == "+") re = fNum + sNum;
+            else if(oper == "-") re = fNum - sNum;
+            else if(oper == "*") re = fNum * sNum;
+            else if(oper == "/") re = fNum / sNum;
+            else {
+                if(!confirm("try again?")) {
+                    bool = false;
+                    break;
+                } else continue; 
+            }
+
+            if(!isNaN(re)) bool2 = true;
+
+            if(bool2) {
+                document.querySelector("div").innerHTML=`<h5>${fNum} ${oper} ${sNum} = ${re}</h5>`;
+                bool = false;
+            }
+            }
+		});
+    </script>
+</body>
+</html>

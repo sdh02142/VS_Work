@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/navbar.css">
     <link rel="stylesheet" href="./css/footer.css">
+    <style>
+        h1{
+            text-align: center;
+        }
+
+        fieldset{
+            margin: 1px;
+            padding: 30px;
+        }
+
+        fieldset button{
+            display: block;
+            margin-left: auto;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,7 +37,8 @@
             </banner>
     </header>
     <h1>Login</h1>
-    <form action="./index.html" method="post">
+    <form action="./index.html">
+        <fieldset>
     <label for="id_tag">아이디&nbsp;</label>
     <input type="text" id="id_tag" name="id" value = "id">
     <br>
@@ -36,8 +52,9 @@
     form의 외부에서는 기본적으로 button 동작을 함.
     -->
     <button>로그인</button>
+    </fieldset>
     </form>
-    <hr>
+
     <footer>
         <ul>
             <li>12345 address 1 address 2 address 3</li>

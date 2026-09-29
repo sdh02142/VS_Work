@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>JavaScript's False</h3>
+    <script>
+        const test = function(name){
+            // if(name == false) document.write(`<h2>False Value</h2>`);
+            name || document.write(`<h2>False Value</h2>`); // => ||를 기준으로 좌변이 false면 우변이 실행됨.
+            // else document.write(`<h2>${name}</h2>`);
+            name && document.write(`<h2>${name}</h2>`); // => &&를 기준으로 좌변이 true면 우변이 실행됨.
+        }
+
+        const name = prompt('Type Name');
+        isNaN(name) || test(parseInt(name))
+        isNaN(name) && test(name)
+    </script>
+</body>
+</html>

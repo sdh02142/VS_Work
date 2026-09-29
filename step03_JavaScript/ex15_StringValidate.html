@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+ <body>
+ <form name="form">
+   ID : <input type="text" name="id"><span id="idSpan"></span><p>
+   age : <input type="text" name="age" ><span></span><p>
+   email : <input type="text" name="email"> <span></span><p>
+
+   <fieldset>
+     <legend>주민번호 </legend>
+	 <input type="text" size="6" name="jumin1"  > - <input type="text" size="7" name="jumin2"  ><span></span> <p>
+     
+	 성별 : 
+	 <input type="radio" name="gender" value="남자" >남자
+     <input type="radio" name="gender" value="여자">여자
+
+   </fieldset>
+
+
+ </form>
+
+ <script>
+    document.querySelector("[name=id]").addEventListener("focus",() => {
+      event.target.style.border="double 5px red";
+      document.querySelector("#idSpan").innerHTML=""
+    })
+
+const alpha = 'qwertyuiopasdfgjhklzxcvbnm';
+
+    //id 박스에 커서를 잃었을 때(blur), id의 값이 영문인지 체크
+    document.querySelector("[name=id]").addEventListener("blur",() => {
+      // console.log(1);
+      event.target.style.border="solid 1px gray";
+      let inputValues = event.target.value;
+
+      // in은 index, of는 value
+      for(let s of inputValues){
+        if(alpha.indexOf(s.toLowerCase())==-1) {
+          document.querySelector("#idSpan").innerHTML="<strong style='color:red'>  English only</strong>"
+          break;
+        }
+      }
+      // if(event.target.value){}
+    })
+
+    // 숫자 유무 체크
+    const numCheck = (obj)=>{
+      if(isNaN(obj.value)) {
+        obj.nextElementSibling.innerHTML="<strong style='color:red'>  Number only</strong>";
+        obj.value="";
+        obj.focus();
+        return true;
+      } else {
+        obj.nextElementSibling.innerHTML="";
+        return false;
+      }
+    }
+
+    // 나이 box의 숫자 체크
+    document.querySelector("[name=age]").addEventListener("blur", () => {
+      numCheck(event.target);
+    })
+
+    // 주민번호 앞자리 6글자 체크
+    document.querySelector("[name=jumin1]").addEventListener("keyup", () => {
+      // 주민번호 앞자리 숫자 체크
+      if(isNaN(event.target.value)){
+        event.target.value = event.target.value.substring(0, event.target.value.length-1);
+      }
+
+      if(event.target.value.length ===6){
+        // 6자리 확인 후 커서 이동
+        event.target.nextElementSibling.focus();
+      }
+    })
+
+    // 주민번호 뒷자리 숫자 유무 체크 및 성별 구분
+    document.querySelector("[name=jumin2]").addEventListener("blur", () => {
+      if(!numCheck(event.target)){
+        if(event.target.value.substring(0,1)==1 || event.target.value.substring(0,1)==3){
+          // document.querySelectorAll("[name=gender]")[0].setAttribute("checked", "checked");
+          document.querySelectorAll("[name=gender]")[0].checked = true;
+        } else document.querySelectorAll("[name=gender]")[1].checked = true;
+      }
+    })
+ </script>
+  
+ </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE HTML >
+<html>
+ <head>
+  <title> New Document </title>
+  <meta charset="utf-8">
+  <style>
+	/* img{
+		width: 50px;
+		height: 50px;
+	} */
+  </style>
+  <script>
+    onload = () => {
+		document.querySelectorAll("span").forEach((spanEle, index) => {
+			spanEle.addEventListener("click", () => {
+				// let imgName = event.target.getAttribute("data-name");
+				let imgName = event.target.dataset.name;
+				
+				document.images[0].src = `img/${imgName}`;
+			})
+		})
+
+		// 이미지가 3초마다 변경
+		let num = 0;
+		const imgLoop = ()=>{
+			let imgName2 = document.querySelectorAll('span')
+			if(num >= imgName2.length) num = 0;
+			document.images[0].src = `img/${imgName2[num++].dataset.name}`;
+		};
+		let imgChange = setInterval(imgLoop, 2000);
+
+		// mouseover, mouseout event 적용
+		document.images[0].addEventListener("mouseover", () => {
+			// setInterval 중지
+			clearInterval(imgChange);
+		});
+
+		document.images[0].addEventListener("mouseout", () => {
+			// setInterval 시작
+			imgChange = setInterval(imgLoop, 2000);
+		});
+		// 이미지 확대, 축소
+		document.querySelectorAll('.imgOverOut').forEach((imgEle) => {
+			// inline 요소 불러오기
+			// console.log(`${imgEle.width} / ${imgEle.height}`);
+
+			// internal 요소 불러오기
+			// console.log(`${getComputedStyle(imgEle).width} / ${getComputedStyle(imgEle).height}`);
+
+			// mouseover, mouseout event 적용
+		imgEle.addEventListener("mouseover", () => {
+			event.target.width *= 2;
+			event.target.height *= 2;
+		});
+
+		imgEle.addEventListener("mouseout", () => {
+			event.target.width /= 2;
+			event.target.height /= 2;
+		});
+		})
+	}
+  </script>
+ </head>
+
+ <body>
+ <img src="img/cat.gif" /><br/><br/>
+
+<span data-name="monkey.gif">[ 원숭이 ]</span> &nbsp;&nbsp;
+<span data-name="lion.gif">[ 사자 ]</span> &nbsp;&nbsp;
+<span data-name="cat.gif">[ 고양이 ]</span> &nbsp;&nbsp;
+<span data-name="dog.gif">[ 강아지 ]</span> &nbsp;&nbsp;
+  
+<hr color="red"/>
+
+<img src="img/monkey.gif"  width="70" height="60"  class="imgOverOut" />&nbsp;&nbsp;
+<img src="img/cat.gif" width="70" height="60" class="imgOverOut" />&nbsp;&nbsp;
+<img src="img/dog.gif" width="70" height="60"  class="imgOverOut" />&nbsp;&nbsp;
+<img src="img/lion.gif" width="70" height="60" class="imgOverOut" />&nbsp;&nbsp;
+ 
+ </body>
+</html>

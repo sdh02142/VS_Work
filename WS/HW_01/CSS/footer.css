@@ -1,11 +1,12 @@
 footer{
-    margin: 1px;
+    margin: 5px 1px 1px 1px;
     padding: 20px;
 
-    background-color: paleturquoise;
+    background-color: aliceblue;
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-end;
+    border-top: 1px solid blue;
 }
 
 footer ul{

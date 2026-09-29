@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: fit-content;
+            margin: 0 auto;
+        }
+        h1{
+            text-align: center;
+        }
+        table{
+            border: 3px red solid;
+            text-align: center;
+            border-collapse: collapse;
+        }
+        tr, td{
+            border: 1px black solid;
+            padding: 20px;
+        }
+        #dan{
+            background-color: pink;
+            color: white;
+        }
+        tr#title{
+            text-align: center;
+            border-top: none;
+        }
+        tr#title td{
+            border-top: none;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.write('<div>');
+        document.write('<h1>구구단</h1>');
+        document.write("<table>");
+            
+            for(let i = 0; i <= 9; i++){
+                if(i == 0) document.write('<tr id="dan">');
+                else document.write("<tr>");
+                for(let j = 2; j <= 9; j++){
+                    if(i == 0) document.write("<td>" + j + "단</td>");
+                    else document.write("<td>" + j + " * "  + i + " = " + (j*i) + "</td>");
+                }
+                document.write("</tr>");
+            }
+        document.write("</table>");
+        document.write('</div>');
+    </script>
+</body>
+</html>

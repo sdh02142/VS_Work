@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Object ( Key & Value )</h3>
+    <script>
+        const person = {
+            name : "길동",
+            age : 20,
+            print : function(){
+                document.write(`person 객체의 print 함수 called.<br>`);
+                return `${this.name}님의 나이는 ${this.age}입니다.`;
+            }
+        }
+
+        // 객체 접근
+        document.write(`${person}<br>`);
+        document.write(`${person.name}<br>`);
+        document.write(`${person.age}<br>`);
+        document.write(`${person["name"]}<br>`);
+        document.write(`${person.print()}<br>`);
+
+        //Object의 key와 value로 접근하기
+        let keys = Object.keys(person);
+        console.log(keys);
+
+        let values = Object.values(person);
+        console.log(values);
+
+        console.log('-------------------------');
+
+        for (let p in person){
+            console.log(p + ' : ' + person[p]);
+        }
+    </script>
+</body>
+</html>

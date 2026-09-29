@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Function Write</h3>
+    <script>
+        /*
+        1) 함수 선언식
+        2) 함수 표현식
+        3) arrow 함수
+        */
+
+        const test01 = () => document.write(`<h2>test01() called.</h2>`);
+
+        const test02 = (a, b) => document.write(`<h2>${a} + ${b} = ${a+b}</h2>`);
+
+        const test03 = (a, b) => {
+            document.write(`<h2>${a} + ${b} = ${a+b}</h2>`);
+            return a + b;
+        }
+        test01();
+        test02(10);
+        test02(10, 20, 30); // 설정한 매개변수보다 많은 변수를 넣을 경우, 매개변수 개수를 초과한 변수들은 무시됨.
+        document.write(`<h2>Result : ${test03(50)}</h2>`)
+
+    </script>
+</body>
+</html>
