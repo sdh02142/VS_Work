@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>구조 분해 할당(Destructuring Assignment)</h3>
+    <!-- 객체({}) or 배열([])의 값을 쉽게 꺼내어 변수에 할당할 수 있도록 도와주는 문법 -->
+     <script>
+        const emp = { empno : 10, ename : 'hong', job : 'instructor' };
+        {
+            // emp 객체 내에 엤는 속성의 값을 변수에 담기 - 기존 방식
+            let empno = emp.empno;
+            let ename = emp.ename;
+            let job = emp.job;
+            
+            console.log(empno, ename, job);
+        }
+
+        {
+            // emp 객체 내에 엤는 속성의 값을 변수에 담기 - 구조 분해 할당
+            let { empno, ename, job } = emp;
+            
+            console.log(empno, ename, job);
+        }
+
+        {
+            // 구조 분해 할당 - 순서 상관없이 key 값(property)이 변수명과 같으면 성립
+            let { job, empno } = emp;
+            
+            console.log(empno, job);
+        }
+
+        {
+            // 구조 분해 할당 - 변수명을 다르게 만들고 싶다면 [key 값(property) : 변수명] 으로 설정
+            let { empno : no, ename : name, job } = emp;
+            
+            console.log(no, name, job);
+        }
+
+        {
+            // 구조 분해 할당 - 변수의 개수가 객체의 key 개수와 다를 경우, 기본값 지정 가능.
+            let { empno : no, ename : name, job, age = 20 /* 기본값, 다른 객체에 age key가 있을 경우, 해당하는 value가 나옴. */ } = emp;
+            
+            console.log(no, name, job, age);
+        }
+
+        console.log(`-------------- Array --------------`);
+        const jobs = ['학생', '강사'];
+        {
+            // 기존 방식
+            let first = jobs[0];
+            let second = jobs[1];
+
+            console.log(first, second);
+        }
+
+        {
+            // 구조 분해 할당
+            let [ first, second ] = jobs;
+
+            console.log(first, second);
+        }
+
+        const nums = [10,20,30,40,50,60,70,80];
+        {
+            // 배열 앞 3개만 조회
+            let [ a,b,c ] = nums;
+
+            console.log(a,b,c);
+        }
+
+        {
+            // 배열 특정 위치의 값 조회
+            let [ a,,,,b,,,c ] = nums;
+
+            console.log(a,b,c);
+        }
+
+        {
+            let a = 5, b = 7;
+
+            console.log(a,b);
+
+            // 변수끼리의 값 교환
+            [ b, a ] = [ a, b ];
+
+            console.log(a,b);
+        }
+
+        const test = () => [10, 20, 30];
+        
+        // 기존 방식
+        let re = test();
+        
+        console.log(re[0], re[2]);
+        
+        // 구조 분해 할당
+        let [a, b, c] = test();
+        
+        console.log(a, c);
+
+        /////////////////////////////////
+        {
+            const test2 = () => {
+                return {nm : 'john', ag : 20, ad : 'seoul'};
+            };
+        
+            // 기존 방식
+            let re = test2();
+        
+            console.log(re.nm, re.ag);
+        
+            // 구조 분해 할당
+            let {nm, ag, ad:address} = test2();
+        
+            console.log(nm, ag, address);
+        }
+        
+        /////////////////////////////////
+        const test3 = (obj) => {
+            let info = `사원번호 : ${obj.empno}, 이름 : ${obj.ename}, 직업 : ${obj.job}`;
+            console.log(info);
+        }
+
+        test3(emp);
+
+        // 매개 값으로 전달된 객체를 구조 분해
+        const test4 = ({ename, empno, job, age = 77}) => {
+            let info = `사원번호 : ${empno}, 이름 : ${ename}, 나이 : ${age}, 직업 : ${job}`;
+            console.log(info);
+        }
+
+        test4(emp);
+
+        // 단축 속성명
+        {
+            let name = 'cane';
+            let age = 30;
+            let addr = 'jeju';
+
+            // 객체
+            let person = {
+                name:name,
+                age:age,
+                addr:addr
+            };
+
+            console.log(person);
+
+            // 객체(단축 속성명 : 객체 내의 각 key의 property와 value로 들어올 변수명이 같을 경우, 사용 가능한 새로운 문법)
+            let person2 = {
+                name,
+                age,
+                addr
+            };
+
+            console.log(person2);
+        }
+     </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title> New Document </title>
+  
+ </head>
+
+ <body>
+ <form name="f">
+	직업 : 
+	 <select name="job" >
+		
+       <option value="0">--선택-- </option>
+	   <option value="백수">백수</option>
+	   <option value="백조">백조 </option>
+	   <option value="학생">학생 </option>
+	   <option value="날라리">날라리 </option>
+	   
+	 </select>	 
+ </form>
+ 
+ <p>
+ <div id="result"></div>
+  
+ </body>
+ <script>
+	document.querySelector('[name=job]').addEventListener('change', () => {
+		const sel = event.target;
+		const divEle = document.querySelector('#result');
+		const info = `선택한 직업 : ${sel.value}<br>index : ${sel.selectedIndex}<br>옵션 개수 : ${sel.length}`;
+		divEle.innerHTML = info;
+
+		// 새로운 옵션 추가
+		let op = new Option('강사'/* html 요소 내의 내용 */, 'instructor'/* value */); // 생성
+		
+		// sel.options[0] = op; 덮어쓰기
+		sel.options[sel.length] = op;
+
+		// option 삭제
+		sel.options[sel.length-1] = null;
+	});
+ </script>
+ 
+ 
+</html>

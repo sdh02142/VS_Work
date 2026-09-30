@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<style type="text/css">
+  table{width: 400px;border: 1px red solid;}
+  td,th{border:1px gray solid;}
+  a{text-decoration: none;}
+</style>
+
+
+</head>
+<body >
+<h1>테이블 동적으로 생성하기 </h1>
+<a href="#" id="add" >추가하기</a>
+
+<table id="table">
+ <tr>
+   <th>이름</th>
+   <th>나이</th>
+   <th>삭제하기</th>
+ </tr>
+  <!-- 동적으로 tr 추가 또는 제거  -->
+</table>
+
+<script>
+  let num = 1;
+  
+  document.querySelector('#add').addEventListener('click', () => {
+    document.querySelector('#table > tbody').innerHTML += `
+    <tr>
+      <td>
+        <input value="john">
+        </td>
+        <td>
+          <input value="${num++}">
+          </td>
+          <td>
+            <button value="삭제" onClick="del()">삭제</button>
+            </td>
+            </tr>
+            `;
+  }); // onClick 내장 함수에 del() 함수를 연동해서 누르면 해당 요소의
+      // tr을 찾아 제거하는 방법.
+      
+//   document.querySelector('#add').addEventListener('click', () => {
+//   let tbody = document.querySelector('#table > tbody');
+
+//   // 행 추가
+//   let tr = tbody.insertRow();
+
+//   // 셀 추가
+//   let td1 = tr.insertCell();
+//   let td2 = tr.insertCell();
+//   let td3 = tr.insertCell();
+
+//   // 첫 번째 셀
+//   let input1 = document.createElement('input');
+//   input1.value = 'john';
+//   td1.appendChild(input1);
+
+//   // 두 번째 셀
+//   let input2 = document.createElement('input');
+//   input2.value = num++;
+//   td2.appendChild(input2);
+
+//   // 세 번째 셀
+//   let button = document.createElement('button');
+//   button.value = '삭제';
+//   button.textContent = '삭제';
+//   td3.appendChild(button);
+// });
+
+// 검색한 함수로 제작할 경우 
+/*
+document.body.addEventListener('click', (event) => {
+  if (event.target.matches('[value=삭제]')) {
+    let tr = event.target.parentElement.parentElement; // button -> td -> tr
+    tr.parentElement.removeChild(tr);
+    num--;
+  }
+});
+*/
+
+// 삭제 로직 작성 및 연동
+let del = () => {
+  let tr = event.target.parentElement.parentElement; // button -> td -> tr
+    tr.parentElement.removeChild(tr);
+    num--;
+};
+</script>
+</body>
+</html>

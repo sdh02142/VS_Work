@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  
+  <title>Document</title>
+   
+ </head>
+ <body>
+ <form>
+   <fieldset>
+      <legend>취미선택</legend>
+	  <input type="checkbox" name="all" value="all" >
+	   <span id="span">전체선택</span>
+	  <p>
+
+	  <input type="checkbox" name="hobby" value="등산">등산
+      <input type="checkbox" name="hobby" value="수영">수영
+	  <input type="checkbox" name="hobby" value="낚시">낚시
+	  <input type="checkbox" name="hobby" value="놀기">놀기
+	  <input type="checkbox" name="hobby" value="먹기">먹기
+
+	  <input type="button" value="클릭" >
+
+   </fieldset>
+ </form>
+ 
+ <div id="result"></div>
+<script>
+	document.querySelector('[value=클릭]').addEventListener('click', () => {
+		document.querySelector('#result').innerHTML = '';
+		// document.querySelectorAll('[name=hobby]').forEach((iEle) => {
+		// 	if(iEle.checked) document.querySelector('#result').innerHTML += `<h2>${iEle.value}</h2`;
+		// });
+
+		document.querySelectorAll('[name=hobby]:checked').forEach((iEle) => {
+			document.querySelector('#result').innerHTML += `<h2>${iEle.value}</h2`;
+				iEle.checked = false;
+		});
+
+		if(document.querySelector('[name=all]').checked) document.querySelector('[name=all]').checked = false;
+	});
+
+	document.querySelector('[name=all]').addEventListener('click', () => {
+		document.querySelectorAll('[name=hobby]').forEach((iEle) => iEle.checked = document.querySelector('[name=all]').checked);
+		document.querySelector('[name=all]').checked ? document.querySelector('#span').innerText = '전체해제' : document.querySelector('#span').innerText = '전체선택'
+	});
+</script>
+ 
+  
+ </body>
+</html>

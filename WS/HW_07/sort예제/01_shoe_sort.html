@@ -637,100 +637,112 @@
     }//funcation end
 
       // 정렬 기능 - 이름으로 
-    let displaySortedShoesByName = (shoes) => {
-        const shoeList = document.getElementById('shoeList'); // 예: <div id="shoeList"></div>
-        shoeList.innerHTML = ''; // 기존 내용 초기화
+    // let displaySortedShoesByName = (shoes) => {
+    //     const shoeList = document.getElementById('shoeList'); // 예: <div id="shoeList"></div>
+    //     shoeList.innerHTML = ''; // 기존 내용 초기화
 
-        if (shoes.length === 0) {
-            const msg = document.createElement('p');
-            msg.className = 'text-center';
-            msg.textContent = '조건에 맞는 신발이 없습니다.';
-            shoeList.appendChild(msg);
-        } else {
-            const sortedShoes = shoes.toSorted((a, b) => a.title.localeCompare(b.title));
-           sortedShoes.forEach(shoe => {
-            const shoeItem = document.createElement('div');
-            shoeItem.className = 'shoe-item';
+    //     if (shoes.length === 0) {
+    //         const msg = document.createElement('p');
+    //         msg.className = 'text-center';
+    //         msg.textContent = '조건에 맞는 신발이 없습니다.';
+    //         shoeList.appendChild(msg);
+    //     } else {
+    //         const sortedShoes = shoes.toSorted((a, b) => a.title.localeCompare(b.title));
+    //        sortedShoes.forEach(shoe => {
+    //         const shoeItem = document.createElement('div');
+    //         shoeItem.className = 'shoe-item';
 
-            shoeItem.innerHTML = `
-            <img src="${shoe.imgUrl}" alt="${shoe.title}" />
-            <h4>${shoe.title}</h4>
-            <p>${shoe.content}</p>
-            <p>가격: ${shoe.price.toLocaleString()}원</p>
-            <p>브랜드: ${shoe.brand}</p>
-            <p>타입: ${shoe.type}</p>
-            `;
+    //         shoeItem.innerHTML = `
+    //         <img src="${shoe.imgUrl}" alt="${shoe.title}" />
+    //         <h4>${shoe.title}</h4>
+    //         <p>${shoe.content}</p>
+    //         <p>가격: ${shoe.price.toLocaleString()}원</p>
+    //         <p>브랜드: ${shoe.brand}</p>
+    //         <p>타입: ${shoe.type}</p>
+    //         `;
 
-            shoeList.appendChild(shoeItem);
-        }); //forend
+    //         shoeList.appendChild(shoeItem);
+    //     }); //forend
 
-      }//else end
-    }//funcation end
-    document.querySelector("#sortName").addEventListener('click', () => displaySortedShoesByName(shoeData))
+    //   }//else end
+    // }//funcation end
+    // document.querySelector("#sortName").addEventListener('click', () => displaySortedShoesByName(shoeData));
+    document.querySelector("#sortName").addEventListener('click', () => {
+        const shoeDataByName = shoeData.toSorted((a, b) => a.title.localeCompare(b.title));
+        displayShoes(shoeDataByName);
+    });
 
      // 정렬 기능 - 닞은 가격 순
-   let displaySortedShoesByPrice = (shoes) => {
-        const shoeList = document.getElementById('shoeList'); // 예: <div id="shoeList"></div>
-        shoeList.innerHTML = ''; // 기존 내용 초기화
+//    let displaySortedShoesByPrice = (shoes) => {
+//         const shoeList = document.getElementById('shoeList'); // 예: <div id="shoeList"></div>
+//         shoeList.innerHTML = ''; // 기존 내용 초기화
 
-        if (shoes.length === 0) {
-            const msg = document.createElement('p');
-            msg.className = 'text-center';
-            msg.textContent = '조건에 맞는 신발이 없습니다.';
-            shoeList.appendChild(msg);
-        } else {
-            const sortedShoes = shoes.toSorted((a, b) => a.price - b.price);
-           sortedShoes.forEach(shoe => {
-            const shoeItem = document.createElement('div');
-            shoeItem.className = 'shoe-item';
+//         if (shoes.length === 0) {
+//             const msg = document.createElement('p');
+//             msg.className = 'text-center';
+//             msg.textContent = '조건에 맞는 신발이 없습니다.';
+//             shoeList.appendChild(msg);
+//         } else {
+//             const sortedShoes = shoes.toSorted((a, b) => a.price - b.price);
+//            sortedShoes.forEach(shoe => {
+//             const shoeItem = document.createElement('div');
+//             shoeItem.className = 'shoe-item';
 
-            shoeItem.innerHTML = `
-            <img src="${shoe.imgUrl}" alt="${shoe.title}" />
-            <h4>${shoe.title}</h4>
-            <p>${shoe.content}</p>
-            <p>가격: ${shoe.price.toLocaleString()}원</p>
-            <p>브랜드: ${shoe.brand}</p>
-            <p>타입: ${shoe.type}</p>
-            `;
+//             shoeItem.innerHTML = `
+//             <img src="${shoe.imgUrl}" alt="${shoe.title}" />
+//             <h4>${shoe.title}</h4>
+//             <p>${shoe.content}</p>
+//             <p>가격: ${shoe.price.toLocaleString()}원</p>
+//             <p>브랜드: ${shoe.brand}</p>
+//             <p>타입: ${shoe.type}</p>
+//             `;
 
-            shoeList.appendChild(shoeItem);
-        }); //forend
+//             shoeList.appendChild(shoeItem);
+//         }); //forend
 
-      }//else end
-    }//funcation end
-    document.querySelector("#sortPriceLow").addEventListener('click', () => displaySortedShoesByPrice(shoeData))
+//       }//else end
+//     }//funcation end
+//     document.querySelector("#sortPriceLow").addEventListener('click', () => displaySortedShoesByPrice(shoeData));
+document.querySelector("#sortPriceLow").addEventListener('click', () => {
+    const shoeDataByPrice = shoeData.toSorted((a, b) => a.price - b.price);
+    displayShoes(shoeDataByPrice);
+    });
 
     // 정렬 기능 - 높은 가격 순
-  let displaySortedShoesByPriceDesc = (shoes) => {
-        const shoeList = document.getElementById('shoeList'); // 예: <div id="shoeList"></div>
-        shoeList.innerHTML = ''; // 기존 내용 초기화
+//   let displaySortedShoesByPriceDesc = (shoes) => {
+//         const shoeList = document.getElementById('shoeList'); // 예: <div id="shoeList"></div>
+//         shoeList.innerHTML = ''; // 기존 내용 초기화
 
-        if (shoes.length === 0) {
-            const msg = document.createElement('p');
-            msg.className = 'text-center';
-            msg.textContent = '조건에 맞는 신발이 없습니다.';
-            shoeList.appendChild(msg);
-        } else {
-            const sortedShoes = shoes.toSorted((a, b) => b.price - a.price);
-           sortedShoes.forEach(shoe => {
-            const shoeItem = document.createElement('div');
-            shoeItem.className = 'shoe-item';
+//         if (shoes.length === 0) {
+//             const msg = document.createElement('p');
+//             msg.className = 'text-center';
+//             msg.textContent = '조건에 맞는 신발이 없습니다.';
+//             shoeList.appendChild(msg);
+//         } else {
+//             const sortedShoes = shoes.toSorted((a, b) => b.price - a.price);
+//            sortedShoes.forEach(shoe => {
+//             const shoeItem = document.createElement('div');
+//             shoeItem.className = 'shoe-item';
 
-            shoeItem.innerHTML = `
-            <img src="${shoe.imgUrl}" alt="${shoe.title}" />
-            <h4>${shoe.title}</h4>
-            <p>${shoe.content}</p>
-            <p>가격: ${shoe.price.toLocaleString()}원</p>
-            <p>브랜드: ${shoe.brand}</p>
-            <p>타입: ${shoe.type}</p>
-            `;
+//             shoeItem.innerHTML = `
+//             <img src="${shoe.imgUrl}" alt="${shoe.title}" />
+//             <h4>${shoe.title}</h4>
+//             <p>${shoe.content}</p>
+//             <p>가격: ${shoe.price.toLocaleString()}원</p>
+//             <p>브랜드: ${shoe.brand}</p>
+//             <p>타입: ${shoe.type}</p>
+//             `;
 
-            shoeList.appendChild(shoeItem);
-        }); //forend
+//             shoeList.appendChild(shoeItem);
+//         }); //forend
 
-      }//else end
-    }//funcation end
-    document.querySelector("#sortPriceHigh").addEventListener('click', () => displaySortedShoesByPriceDesc(shoeData))
+//       }//else end
+//     }//funcation end
+//     document.querySelector("#sortPriceHigh").addEventListener('click', () => displaySortedShoesByPriceDesc(shoeData));
+document.querySelector("#sortPriceHigh").addEventListener('click', () => {
+    const shoeDataByPriceDesc = shoeData.toSorted((a, b) => b.price - a.price);
+    displayShoes(shoeDataByPriceDesc);
+    });
 
       
       //로딩

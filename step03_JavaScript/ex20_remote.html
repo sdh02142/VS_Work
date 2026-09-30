@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <a href="#" data-url="naver.com">네이버</a> <p>
+ <a href="#" data-url="daum.net">다음</a> <p>
+ <a href="#" data-url="kosta.or.kr">코스타</a> <p>
+    <!--
+    href="#" =>하이퍼링크 입력에 #을 넣어두면 창의 이동만 막히고 링크는 활성화 상태가 됨.
+    -->
+<script>
+    document.querySelectorAll('a').forEach((aEle) => {
+        aEle.addEventListener('click', () => {
+            // location.href = `http://www.${event.target.dataset.url}`;
+            // location.href = `http://www.${aEle.dataset.url}`;
+            opener.location.href = `http://www.${aEle.dataset.url}`;
+        })
+    });
+</script>
+</body>
+</html>
